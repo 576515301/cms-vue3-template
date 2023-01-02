@@ -1,11 +1,11 @@
 <template>
-    <div>这是菜单栏1</div>
+    <div>这是props:{{ msg }}</div>
 </template>
 
 <script setup>
-
+const { msg } = defineProps(['msg'])
 </script>
 
-<style lang='sass' scoped>
+<style lang='scss' scoped>
 
 </style>

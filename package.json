@@ -9,6 +9,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "axios": "^1.2.2",
     "element-plus": "^2.2.27",
     "pinia": "^2.0.28",
     "sass": "^1.57.1",
@@ -23,6 +24,7 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
+    "path": "^0.12.7",
     "prettier": "^2.7.1",
     "unplugin-auto-import": "^0.12.1",
     "unplugin-vue-components": "^0.22.12",

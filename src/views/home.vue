@@ -3,14 +3,19 @@
         <el-button>Default</el-button>
         <el-button type="primary">Primary</el-button>
         <div>{{ data }}</div>
-        <Menu></Menu>
+        <Menu :msg="data"></Menu>
     </div>
 </template>
 
 <script setup>
-const data = ref(123)
+import Menu from "@components/menu.vue";
+import { ref, reactive } from 'vue'
+
+
+const data = ref("你好啊")
+const obj = reactive({ a: 1 })
 </script>
 
-<style lang='sass' scoped>
+<style lang='scss' scoped>
 
 </style>
