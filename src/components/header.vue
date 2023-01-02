@@ -107,64 +107,44 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import DialogHeader from "@/components/dialogHeader.vue";
-export default {
-    components: { DialogHeader },
-    data() {
-        return {
-            rateValue: 5,
-            accessShow: false,
-            accessPage: 1,
-            accessMoney: "",
-            saveMoney: "",
-            liveBroad: {
-                liveShow: false,
-                liveTime: 0
-            }
-        };
-    },
-    computed: {
-
-    },
-    watch: {
-
-    },
-    methods: {
-        access() {
-            this.accessShow = true;
-        },
-        cancelAccessPage() {
-            this.accessShow = false;
-        },
-        cleanNum() {
-            this.accessMoney = "";
-            this.saveMoney = "";
-        },
-        whatPage(num) {
-            this.accessPage = num;
-        },
-        accessFun() {
-            console.log(this.accessMoney);
-        },
-        liveShowDialog() {
-            this.liveBroad.liveShow = true;
-            this.$nextTick(() => {
-                console.log(this.$refs.liveSlider, 123)
-                // this.$refs.liveSlider.setPosition(70);
-            })
-        },
-        liveTip(value) {
-            return `${value}小时`
-        },
-    },
-    created() {
-
-    },
-    mounted() {
-
-    },
+import { ref, reactive, nextTick } from "vue";
+const rateValue = ref(5)
+const accessShow = ref(false)
+const accessPage = ref(1)
+const accessMoney = ref('')
+const saveMoney = ref('')
+const liveBroad = reactive({
+    liveShow: false,
+    liveTime: 0
+})
+const access = () => {
+    accessShow.value = true;
 }
+const cancelAccessPage = () => {
+    accessShow.value = false;
+}
+const cleanNum = () => {
+    accessMoney.value = "";
+    saveMoney.value = "";
+}
+const whatPage = () => {
+    accessPage.value = num;
+}
+const accessFun = () => {
+    console.log(this.accessMoney);
+}
+
+const liveSlider = ref();
+const liveShowDialog = () => {
+    liveBroad.liveShow = true;
+}
+
+const liveTip = value => {
+    return `${value}小时`
+}
+
 </script>
 <style lang='scss' scoped>
 :deep(.el-dialog) {

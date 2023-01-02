@@ -1,20 +1,18 @@
 <template>
     <Page>
         <template #header>
+
         </template>
         <template #main>
-            这是首页
+            产品页面
         </template>
     </Page>
 </template>
 
 <script setup>
 import Page from "@/components/page.vue";
-import { ref, reactive } from 'vue'
-
 
 </script>
-
-<style lang='scss' scoped>
+<style lang='less' scoped>
 
 </style>

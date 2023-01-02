@@ -11,48 +11,37 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref, reactive, watch } from 'vue'
+import { useRouter } from 'vue-router'
 
+const navList = reactive([
+    { name: "首页", id: 1, icon: "home", path: "/home" },
+    { name: "商品", id: 2, icon: "shopping-bag", path: "/productList" },
+    { name: "订单", id: 3, icon: "table", path: "" },
+    { name: "售后", id: 4, icon: "headphones", path: "" },
+    { name: "员工", id: 5, icon: "users", path: "" },
+    { name: "评价", id: 6, icon: "thumbs-up", path: "" }
+]);
+const active = ref(1);
+const router = useRouter();
+watch(
+    () => router.currentRoute.value.path,
+    newPath => {
+        if (!navList.length) return;
+        let nowPath = navList.find(v => newPath == v.path);
+        active.value = nowPath ? nowPath.id : "";
+    },
+    {
+        immediate: true,
+    }
+)
 
-export default {
-    components: {},
-    data() {
-        return {
-            navList: [
-                { name: "首页", id: 1, icon: "home", path: "/home" },
-                { name: "商品", id: 2, icon: "shopping-bag", path: "/productList" },
-                { name: "订单", id: 3, icon: "table", path: "" },
-                { name: "售后", id: 4, icon: "headphones", path: "" },
-                { name: "员工", id: 5, icon: "users", path: "" },
-                { name: "评价", id: 6, icon: "thumbs-up", path: "" }
-            ],
-            active: 1
-        };
-    },
-    computed: {
-
-    },
-    watch: {
-        $route(to, from) {
-            if (!this.navList.length) return;
-            let nowPath = this.navList.find(v => to.path == v.path);
-            this.active = nowPath ? nowPath.id : "";
-        }
-    },
-    methods: {
-        activeItem(item) {
-            this.active = item.id
-            this.$router.push(item.path)
-        }
-    },
-
-    created() {
-
-    },
-    mounted() {
-
-    },
+const activeItem = (item) => {
+    active.value = item.id
+    router.push(item.path)
 }
+
 </script>
 <style lang='scss' scoped>
 .navList {

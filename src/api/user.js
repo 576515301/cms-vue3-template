@@ -8,6 +8,13 @@ const login = async data => await request({
     data
 })
 
+const userInfo = async data => await request({
+    url: `${prefix}/userInfo`,
+    method: "get",
+    data
+})
+
 export {
-    login
+    login,
+    userInfo
 }

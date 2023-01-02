@@ -8,8 +8,10 @@ const request = axios.create({
 
 
 request.interceptors.request.use(req => {
-    if (!req.headers.token)
-        req.headers.token = "hhs"
+    if (!req.headers.token) {
+        const users = JSON.parse(localStorage.getItem('users'))
+        req.headers.token = (users && users.token) || '';
+    }
     return req;
 }, error => {
     return Promise.reject(error);

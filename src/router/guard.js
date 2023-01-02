@@ -1,8 +1,8 @@
 const beforeEach = (to, from) => {
     const isToLogin = to.path === "/login";
-    const token = localStorage.getItem('token');
+    const users = JSON.parse(localStorage.getItem('users'));
 
-    if (token) {
+    if (users && users.token) {
         if (isToLogin) {
             if (from.path === "/") return { path: "/home" };
             else return false;

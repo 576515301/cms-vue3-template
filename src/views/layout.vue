@@ -12,7 +12,7 @@
                 <Header></Header>
             </el-header>
             <el-main>
-                <router-view></router-view>
+                <RouterView />
             </el-main>
         </el-container>
     </el-container>
@@ -21,6 +21,17 @@
 <script setup>
 import Nav from "@components/nav.vue";
 import Header from "@components/header.vue";
+import { onMounted } from "vue";
+import { useUserStore } from '@store/user.js'
+
+const userStore = useUserStore();
+
+onMounted(async () => {
+    await userStore.userInfo()
+})
+
+
+
 </script>
 
 <style lang='scss' scoped>
@@ -63,12 +74,12 @@ import Header from "@components/header.vue";
 }
 
 // 重置dialog头部样式
-::v-deep .el-dialog {
+:deep(.el-dialog) {
     border-radius: 8px;
     overflow: hidden;
 }
 
-::v-deep .el-dialog__header {
+:deep(.el-dialog__header) {
     background: #535765;
     padding: 0;
     margin: 0;
