@@ -7,32 +7,8 @@
     </div>
 </template>
 
-<script>
-
-export default {
-    props: ["titleName", "close"],
-    components: {},
-    data() {
-        return {
-
-        };
-    },
-    computed: {
-
-    },
-    watch: {
-
-    },
-    methods: {
-
-    },
-    created() {
-
-    },
-    mounted() {
-
-    },
-}
+<script setup>
+const { titleName, close } = defineProps(["titleName", "close"]);
 </script>
 <style lang='scss' scoped>
 .dialogTitle {

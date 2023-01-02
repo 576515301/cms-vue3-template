@@ -3,7 +3,7 @@ import layout from '../views/layout.vue'
 const routes = [
     {
         path: '/',
-        redirect: "/home"
+        redirect: "/layout"
     },
     {
         path: '/login',
@@ -13,6 +13,7 @@ const routes = [
     {
         path: '/layout',
         name: 'layout',
+        redirect:'/home',
         component: layout,
         children: [
             {

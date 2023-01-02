@@ -98,8 +98,8 @@
                 <div class="liveTime">
                     <span>直播时间：</span>
                     <el-slider v-model="liveBroad.liveTime" :step="1" :max="14" :format-tooltip="liveTip"
-                        placement="bottom" ref="liveSlider" :show-tooltip="false"/>
-                    <span class="note">{{liveBroad.liveTime}}小时</span>
+                        placement="bottom" ref="liveSlider" :show-tooltip="false" />
+                    <span class="note">{{ liveBroad.liveTime }}小时</span>
                 </div>
                 <div class="startLiveBtn">开启直播</div>
             </div>
@@ -167,7 +167,7 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-::v-deep .el-dialog {
+:deep(.el-dialog) {
     width: 560px;
 }
 
@@ -477,17 +477,18 @@ export default {
             font-weight: bold;
             color: #999;
             width: 120px;
-            &.note{
-                width:80px;
-                margin-left:14px;
+
+            &.note {
+                width: 80px;
+                margin-left: 14px;
             }
         }
 
-        .el-slider__bar {
+        :deep(.el-slider__bar) {
             background: #535765;
         }
 
-        .el-slider__button {
+        :deep(.el-slider__button) {
             border-color: #464955;
             background: #535765;
             box-shadow: 0 0 1px #76777b;

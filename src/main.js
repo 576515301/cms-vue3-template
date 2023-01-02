@@ -4,6 +4,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import '@/styles/normalize.css'
 import "./assets/style/reset.css";
+import Icon from "./components/icon.vue";
 
 import App from './App.vue'
 import router from './router'
@@ -17,4 +18,5 @@ app
     .use(createPinia())
     .use(router)
     .use(ElementPlus)
+    .component("Icon", Icon)
     .mount('#app')

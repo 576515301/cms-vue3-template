@@ -46,12 +46,12 @@
 }
 
 // 重置dialog头部样式
-::v-deep .el-dialog {
+:deep(.el-dialog) {
   border-radius: 8px;
   overflow: hidden;
 }
 
-::v-deep .el-dialog__header {
+:deep(.el-dialog__header) {
   background: #535765;
   padding: 0;
   margin: 0;
