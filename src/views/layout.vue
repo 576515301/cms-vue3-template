@@ -26,9 +26,9 @@ import { useUserStore } from '@store/user.js'
 
 const userStore = useUserStore();
 
-onMounted(async () => {
-    await userStore.userInfo()
-})
+// onMounted(async () => {
+//     await userStore.userInfo()
+// })
 
 
 

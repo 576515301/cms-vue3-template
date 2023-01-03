@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import '@/styles/normalize.css'
-import "./assets/style/reset.css";
+import '@/assets/style/normalize.css'
+import "@/assets/style/reset.css";
 import Icon from "./components/icon.vue";
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
