@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { publicRoutes, privateRoutes } from './routes'
+import { publicRoutes } from './routes'
 import { useUserStore } from '@store/user.js'
 
 const router = createRouter({
@@ -9,15 +9,17 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
 	const isToLogin = to.path === "/login";
 	const userStore = useUserStore();
+	console.log(router.getRoutes(),111)
 	if (userStore.token) {
 		if (isToLogin) {
 			next('/')
 		} else {
 			if (!userStore.hasUserInfo) {
 				await userStore.getUserInfo();
-				privateRoutes.map(i => {
-					router.addRoute('layout',i);
-				})
+				console.log(userStore.menuRoutes, 222)
+				console.log(router.getRoutes(), 333)
+				router.addRoute(userStore.menuRoutes);
+				console.log(router.getRoutes(), 444)
 				next({ ...to, replace: true })
 			} else {
 				next();
